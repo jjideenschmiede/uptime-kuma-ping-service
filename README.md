@@ -21,13 +21,13 @@ To start the container properly, here is a small template. A volume mapping is o
 ### With SSL
 
 ```console
-docker run -d --restart always --name uptime-kuma-ping-service -e ENABLE_SSL='true' -e CERTIFICATE_CRT_NAME='...fullchain.pem' -e CERTIFICATE_KEY_NAME='...key.pem' -v /var/lib/certificates:/go/src/app/files/certificates jjdevelopment/uptime-kuma-ping-service:latest
+docker run -d --restart always --name uptime-kuma-ping-service -e ENABLE_SSL='true' -e CERTIFICATE_CRT_NAME='...fullchain.pem' -e CERTIFICATE_KEY_NAME='...key.pem' -v /var/lib/certificates:/go/src/app/files/certificates -p 443:443 jjdevelopment/uptime-kuma-ping-service:latest
 ```
 
 ### Without SSL
 
 ```console
-docker run -d --restart always --name uptime-kuma-ping-service jjdevelopment/uptime-kuma-ping-service:latest
+docker run -d --restart always --name uptime-kuma-ping-service -p 80:443 jjdevelopment/uptime-kuma-ping-service:latest
 ```
 
 Now the container can be started, so that your Uptime Kuma can connect to your server and check the service directly. So you know directly if Docker is still running on the server.
