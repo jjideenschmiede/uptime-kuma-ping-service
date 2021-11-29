@@ -14,7 +14,7 @@
 FROM golang:latest
 
 # Config gin server
-ENV ENABLE_SSL='true'
+ENV ENABLE_SSL='false'
 ENV CERTIFICATE_CRT_NAME='default'
 ENV CERTIFICATE_KEY_NAME='default'
 
